@@ -1,0 +1,24 @@
+﻿
+@using Car.Models
+@model IEnumerable<SanPham>
+@foreach (var item in Model.Take(3))
+{ 
+<div class="col-lg-4 col-md-6">
+    <div class="product-item">
+        <a href="@Url.Action("XemChiTiet","SanPhams",new { id=item.MaSP})"><img style="object-fit: cover; width:348px;height:254px;" src="~/Content/assets/images/@item.HinhAnh" alt=""></a>
+        <div class="down-content">
+            <a href="@Url.Action("XemChiTiet","SanPhams",new { id=item.MaSP})"><h4>@item.TenSP</h4></a>
+
+            <h6><small><del> $11199.00</del></small> $@item.DonGia</h6>
+
+            <p>@item.ChiTietSP.CongSuatLonNhat &nbsp;/&nbsp; @item.ChiTietSP.NhienLieu &nbsp;/&nbsp; @item.ChiTietSP.NamSanXuat &nbsp;/&nbsp;</p>
+
+            <small>
+                <strong title="Author"><i class="fa fa-dashboard"></i> @item.ChiTietSP.TocDoToiDa km</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                <strong title="Author"><i class="fa fa-cube"></i> @item.ChiTietSP.Momen </strong>&nbsp;&nbsp;&nbsp;&nbsp;
+                <strong title="Views"><i class="fa fa-cog"></i>@item.ChiTietSP.KieuDanDong</strong>
+            </small>
+        </div>
+    </div>
+</div>
+}
