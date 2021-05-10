@@ -1,0 +1,320 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WebOtoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PassWord" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MaLoaiTV" Type="Int32" />
+    <NavigationProperty Name="ThanhVien" Relationship="WebOtoModel.fk_a_tv" FromRole="Admin" ToRole="ThanhVien" />
+  </EntityType>
+  <EntityType Name="Blog">
+    <Key>
+      <PropertyRef Name="MaBlog" />
+    </Key>
+    <Property Name="MaBlog" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TieuDe" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NoiDung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HinhAnh" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NgayCapNhat" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ChiTietPN">
+    <Key>
+      <PropertyRef Name="MaCTPN" />
+    </Key>
+    <Property Name="MaCTPN" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DonGiaNhap" Type="Double" />
+    <Property Name="SoLuongNhap" Type="Int32" />
+    <Property Name="MaPN" Type="Int32" />
+    <Property Name="MaSP" Type="Int32" />
+    <NavigationProperty Name="PhieuNhap" Relationship="Self.fk_ctpn_pn2" FromRole="ChiTietPN" ToRole="PhieuNhap" />
+    <NavigationProperty Name="SanPham" Relationship="Self.fk_ctpn_sp2" FromRole="ChiTietPN" ToRole="SanPham" />
+  </EntityType>
+  <EntityType Name="NhaCungCap">
+    <Key>
+      <PropertyRef Name="MaNCC" />
+    </Key>
+    <Property Name="MaNCC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenNCC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SanPhams" Relationship="Self.fk_sp_ncc2" FromRole="NhaCungCap" ToRole="SanPham" />
+    <NavigationProperty Name="PhieuNhaps" Relationship="WebOtoModel.fk_pn_ncc2" FromRole="NhaCungCap" ToRole="PhieuNhap" />
+  </EntityType>
+  <EntityType Name="NhaSanXuat">
+    <Key>
+      <PropertyRef Name="MaNSX" />
+    </Key>
+    <Property Name="MaNSX" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenNSX" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ThongTin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SanPhams" Relationship="Self.fk_sp_nsx2" FromRole="NhaSanXuat" ToRole="SanPham" />
+  </EntityType>
+  <EntityType Name="PhieuNhap">
+    <Key>
+      <PropertyRef Name="MaPN" />
+    </Key>
+    <Property Name="MaPN" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaNCC" Type="Int32" />
+    <Property Name="NgayNhap" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ChiTietPNs" Relationship="Self.fk_ctpn_pn2" FromRole="PhieuNhap" ToRole="ChiTietPN" />
+    <NavigationProperty Name="NhaCungCap" Relationship="WebOtoModel.fk_pn_ncc2" FromRole="PhieuNhap" ToRole="NhaCungCap" />
+  </EntityType>
+  <EntityType Name="SanPham">
+    <Key>
+      <PropertyRef Name="MaSP" />
+    </Key>
+    <Property Name="MaSP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenSP" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HinhAnh" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DonGia" Type="Double" />
+    <Property Name="LuotXem" Type="Int32" />
+    <Property Name="TrangThai" Type="Boolean" />
+    <Property Name="MaCTSP" Type="Int32" />
+    <Property Name="MaNCC" Type="Int32" />
+    <Property Name="MaNSX" Type="Int32" />
+    <NavigationProperty Name="ChiTietPNs" Relationship="Self.fk_ctpn_sp2" FromRole="SanPham" ToRole="ChiTietPN" />
+    <NavigationProperty Name="NhaCungCap" Relationship="Self.fk_sp_ncc2" FromRole="SanPham" ToRole="NhaCungCap" />
+    <NavigationProperty Name="NhaSanXuat" Relationship="Self.fk_sp_nsx2" FromRole="SanPham" ToRole="NhaSanXuat" />
+    <NavigationProperty Name="ChiTietSP" Relationship="WebOtoModel.fk_sp_ctsp2" FromRole="SanPham" ToRole="ChiTietSP" />
+    <Property Name="HinhAnh1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HinhAnh2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HinhAnh3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HinhAnh4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Team">
+    <Key>
+      <PropertyRef Name="MaTeam" />
+    </Key>
+    <Property Name="MaTeam" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ten" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ChucVu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HinhAnh" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TramNgon" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="fk_ctpn_pn2">
+    <End Role="PhieuNhap" Type="Self.PhieuNhap" Multiplicity="0..1" />
+    <End Role="ChiTietPN" Type="Self.ChiTietPN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhieuNhap">
+        <PropertyRef Name="MaPN" />
+      </Principal>
+      <Dependent Role="ChiTietPN">
+        <PropertyRef Name="MaPN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_ctpn_sp2">
+    <End Role="SanPham" Type="Self.SanPham" Multiplicity="0..1" />
+    <End Role="ChiTietPN" Type="Self.ChiTietPN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SanPham">
+        <PropertyRef Name="MaSP" />
+      </Principal>
+      <Dependent Role="ChiTietPN">
+        <PropertyRef Name="MaSP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_sp_ncc2">
+    <End Role="NhaCungCap" Type="Self.NhaCungCap" Multiplicity="0..1" />
+    <End Role="SanPham" Type="Self.SanPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhaCungCap">
+        <PropertyRef Name="MaNCC" />
+      </Principal>
+      <Dependent Role="SanPham">
+        <PropertyRef Name="MaNCC" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_sp_nsx2">
+    <End Role="NhaSanXuat" Type="Self.NhaSanXuat" Multiplicity="0..1" />
+    <End Role="SanPham" Type="Self.SanPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhaSanXuat">
+        <PropertyRef Name="MaNSX" />
+      </Principal>
+      <Dependent Role="SanPham">
+        <PropertyRef Name="MaNSX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="WebOtoEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Admins" EntityType="Self.Admin" />
+    <EntitySet Name="Blogs" EntityType="Self.Blog" />
+    <EntitySet Name="ChiTietPNs" EntityType="Self.ChiTietPN" />
+    <EntitySet Name="NhaCungCaps" EntityType="Self.NhaCungCap" />
+    <EntitySet Name="NhaSanXuats" EntityType="Self.NhaSanXuat" />
+    <EntitySet Name="PhieuNhaps" EntityType="Self.PhieuNhap" />
+    <EntitySet Name="SanPhams" EntityType="Self.SanPham" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Teams" EntityType="Self.Team" />
+    <AssociationSet Name="fk_ctpn_pn2" Association="Self.fk_ctpn_pn2">
+      <End Role="PhieuNhap" EntitySet="PhieuNhaps" />
+      <End Role="ChiTietPN" EntitySet="ChiTietPNs" />
+    </AssociationSet>
+    <AssociationSet Name="fk_ctpn_sp2" Association="Self.fk_ctpn_sp2">
+      <End Role="SanPham" EntitySet="SanPhams" />
+      <End Role="ChiTietPN" EntitySet="ChiTietPNs" />
+    </AssociationSet>
+    <AssociationSet Name="fk_sp_ncc2" Association="Self.fk_sp_ncc2">
+      <End Role="NhaCungCap" EntitySet="NhaCungCaps" />
+      <End Role="SanPham" EntitySet="SanPhams" />
+    </AssociationSet>
+    <AssociationSet Name="fk_sp_nsx2" Association="Self.fk_sp_nsx2">
+      <End Role="NhaSanXuat" EntitySet="NhaSanXuats" />
+      <End Role="SanPham" EntitySet="SanPhams" />
+    </AssociationSet>
+    <AssociationSet Name="fk_pn_ncc2" Association="WebOtoModel.fk_pn_ncc2">
+      <End Role="NhaCungCap" EntitySet="NhaCungCaps" />
+      <End Role="PhieuNhap" EntitySet="PhieuNhaps" />
+    </AssociationSet>
+    <EntitySet Name="ChiTietSPs" EntityType="WebOtoModel.ChiTietSP" />
+    <AssociationSet Name="fk_sp_ctsp2" Association="WebOtoModel.fk_sp_ctsp2">
+      <End Role="ChiTietSP" EntitySet="ChiTietSPs" />
+      <End Role="SanPham" EntitySet="SanPhams" />
+    </AssociationSet>
+    <EntitySet Name="Quyens" EntityType="WebOtoModel.Quyen" />
+    <EntitySet Name="ThanhViens" EntityType="WebOtoModel.ThanhVien" />
+    <EntitySet Name="ThanhVien_Quyen" EntityType="WebOtoModel.ThanhVien_Quyen" />
+    <AssociationSet Name="fk_tvq_q" Association="WebOtoModel.fk_tvq_q">
+      <End Role="Quyen" EntitySet="Quyens" />
+      <End Role="ThanhVien_Quyen" EntitySet="ThanhVien_Quyen" />
+    </AssociationSet>
+    <AssociationSet Name="fk_tvq_tv" Association="WebOtoModel.fk_tvq_tv">
+      <End Role="ThanhVien" EntitySet="ThanhViens" />
+      <End Role="ThanhVien_Quyen" EntitySet="ThanhVien_Quyen" />
+    </AssociationSet>
+    <AssociationSet Name="fk_a_tv" Association="WebOtoModel.fk_a_tv">
+      <End Role="ThanhVien" EntitySet="ThanhViens" />
+      <End Role="Admin" EntitySet="Admins" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association Name="fk_pn_ncc2">
+    <End Type="WebOtoModel.NhaCungCap" Role="NhaCungCap" Multiplicity="0..1" />
+    <End Type="WebOtoModel.PhieuNhap" Role="PhieuNhap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhaCungCap">
+        <PropertyRef Name="MaNCC" />
+      </Principal>
+      <Dependent Role="PhieuNhap">
+        <PropertyRef Name="MaNCC" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ChiTietSP">
+    <Key>
+      <PropertyRef Name="MaCTSP" />
+    </Key>
+    <Property Name="MaCTSP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ChungLoai" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="XuatXu" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NamSanXuat" Type="Int32" />
+    <Property Name="KichThuoc" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ChieuDaiCoSo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TuTrong" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DungTichXiLanh" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="KieuDongCo" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="HopSo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CongSuatLonNhat" Type="String" MaxLength="55" FixedLength="false" Unicode="true" />
+    <Property Name="Momen" Type="String" MaxLength="55" FixedLength="false" Unicode="true" />
+    <Property Name="TocDoToiDa" Type="String" MaxLength="55" FixedLength="false" Unicode="true" />
+    <Property Name="NhienLieu" Type="String" MaxLength="55" FixedLength="false" Unicode="true" />
+    <Property Name="KieuDanDong" Type="String" MaxLength="55" FixedLength="false" Unicode="true" />
+    <Property Name="SoChoNgoi" Type="Int32" />
+    <Property Name="TieuThu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CoLop" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MoTa" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SanPhams" Relationship="WebOtoModel.fk_sp_ctsp2" FromRole="ChiTietSP" ToRole="SanPham" />
+  </EntityType>
+  <Association Name="fk_sp_ctsp2">
+    <End Type="WebOtoModel.ChiTietSP" Role="ChiTietSP" Multiplicity="0..1" />
+    <End Type="WebOtoModel.SanPham" Role="SanPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChiTietSP">
+        <PropertyRef Name="MaCTSP" />
+      </Principal>
+      <Dependent Role="SanPham">
+        <PropertyRef Name="MaCTSP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Quyen">
+    <Key>
+      <PropertyRef Name="MaQuyen" />
+    </Key>
+    <Property Name="MaQuyen" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TenQuyen" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ThanhVien_Quyen" Relationship="WebOtoModel.fk_tvq_q" FromRole="Quyen" ToRole="ThanhVien_Quyen" />
+  </EntityType>
+  <EntityType Name="ThanhVien">
+    <Key>
+      <PropertyRef Name="MaLoaiTV" />
+    </Key>
+    <Property Name="MaLoaiTV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenLoaiTV" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ThanhVien_Quyen" Relationship="WebOtoModel.fk_tvq_tv" FromRole="ThanhVien" ToRole="ThanhVien_Quyen" />
+    <NavigationProperty Name="Admins" Relationship="WebOtoModel.fk_a_tv" FromRole="ThanhVien" ToRole="Admin" />
+  </EntityType>
+  <EntityType Name="ThanhVien_Quyen">
+    <Key>
+      <PropertyRef Name="MaTVQ" />
+    </Key>
+    <Property Name="MaTVQ" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaLoaiTV" Type="Int32" />
+    <Property Name="MaQuyen" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GhiChu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Quyen" Relationship="WebOtoModel.fk_tvq_q" FromRole="ThanhVien_Quyen" ToRole="Quyen" />
+    <NavigationProperty Name="ThanhVien" Relationship="WebOtoModel.fk_tvq_tv" FromRole="ThanhVien_Quyen" ToRole="ThanhVien" />
+  </EntityType>
+  <Association Name="fk_tvq_q">
+    <End Type="WebOtoModel.Quyen" Role="Quyen" Multiplicity="0..1" />
+    <End Type="WebOtoModel.ThanhVien_Quyen" Role="ThanhVien_Quyen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Quyen">
+        <PropertyRef Name="MaQuyen" />
+      </Principal>
+      <Dependent Role="ThanhVien_Quyen">
+        <PropertyRef Name="MaQuyen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_tvq_tv">
+    <End Type="WebOtoModel.ThanhVien" Role="ThanhVien" Multiplicity="0..1" />
+    <End Type="WebOtoModel.ThanhVien_Quyen" Role="ThanhVien_Quyen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ThanhVien">
+        <PropertyRef Name="MaLoaiTV" />
+      </Principal>
+      <Dependent Role="ThanhVien_Quyen">
+        <PropertyRef Name="MaLoaiTV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_a_tv">
+    <End Type="WebOtoModel.ThanhVien" Role="ThanhVien" Multiplicity="0..1" />
+    <End Type="WebOtoModel.Admin" Role="Admin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ThanhVien">
+        <PropertyRef Name="MaLoaiTV" />
+      </Principal>
+      <Dependent Role="Admin">
+        <PropertyRef Name="MaLoaiTV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

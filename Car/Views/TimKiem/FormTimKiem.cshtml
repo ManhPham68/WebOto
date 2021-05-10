@@ -1,0 +1,36 @@
+﻿@*<style>
+        .search {
+            position: absolute;
+            right: 10px;
+            top: 25px;
+
+        }
+
+    </style>
+    <div class="search">
+        <input type="search" class="search-box" name="SearchString" placeholder="Tìm Kiếm Theo Tên" />
+        <span class="search-button">
+            <span class="search-icon"></span>
+        </span>
+    </div>
+    <script>
+        $('.search-button').click(function () {
+            $(this).parent().toggleClass('open');
+        });
+    </script>
+
+*@
+<link href="~/Content/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Additional CSS Files -->
+<link rel="stylesheet" href="~/Content/assets/css/fontawesome.css">
+<link rel="stylesheet" href="~/Content/assets/css/style.css">
+<link rel="stylesheet" href="~/Content/assets/css/owl.css">
+
+<div>
+    <div>
+        <input type="text" class="form-control" name="SearchString" placeholder="Tìm Kiếm Theo Tên" aria-label="Search" aria-describedby="basic-addon2">
+    </div>
+
+
+</div>

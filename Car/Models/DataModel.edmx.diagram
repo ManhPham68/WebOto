@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0b69a036bcfb436580e0b0052a83936d" Name="Diagram1" ZoomLevel="58">
+        <EntityTypeShape EntityType="WebOtoModel.Admin" Width="1.5" PointX="10.125" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebOtoModel.Blog" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebOtoModel.ChiTietPN" Width="1.5" PointX="5.25" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebOtoModel.NhaCungCap" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebOtoModel.NhaSanXuat" Width="1.5" PointX="5.875" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebOtoModel.PhieuNhap" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebOtoModel.SanPham" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebOtoModel.sysdiagram" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebOtoModel.Team" Width="1.5" PointX="7.75" PointY="6.75" IsExpanded="true" />
+        <AssociationConnector Association="WebOtoModel.fk_ctpn_pn2" ManuallyRouted="false" />
+        <AssociationConnector Association="WebOtoModel.fk_ctpn_sp2" ManuallyRouted="false" />
+        <AssociationConnector Association="WebOtoModel.fk_sp_ncc2" ManuallyRouted="false" />
+        <AssociationConnector Association="WebOtoModel.fk_sp_nsx2" ManuallyRouted="false" />
+        <AssociationConnector Association="WebOtoModel.fk_pn_ncc2" />
+        <EntityTypeShape EntityType="WebOtoModel.ChiTietSP" Width="1.5" PointX="0.5" PointY="1.5" />
+        <AssociationConnector Association="WebOtoModel.fk_sp_ctsp2" />
+        <EntityTypeShape EntityType="WebOtoModel.Quyen" Width="1.5" PointX="5.375" PointY="10.25" />
+        <EntityTypeShape EntityType="WebOtoModel.ThanhVien" Width="1.5" PointX="5.375" PointY="13.25" />
+        <EntityTypeShape EntityType="WebOtoModel.ThanhVien_Quyen" Width="1.5" PointX="7.625" PointY="9.875" />
+        <AssociationConnector Association="WebOtoModel.fk_tvq_q" />
+        <AssociationConnector Association="WebOtoModel.fk_tvq_tv" />
+        <AssociationConnector Association="WebOtoModel.fk_a_tv" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,122 @@
+﻿@model Car.Models.SanPham
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>SanPham</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.TenSP)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TenSP)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.HinhAnh)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HinhAnh)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DonGia)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DonGia)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.LuotXem)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LuotXem)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TrangThai)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TrangThai)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.HinhAnh1)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HinhAnh1)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.HinhAnh2)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HinhAnh2)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.HinhAnh3)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HinhAnh3)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.HinhAnh4)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HinhAnh4)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NhaCungCap.TenNCC)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NhaCungCap.TenNCC)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NhaSanXuat.TenNSX)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NhaSanXuat.TenNSX)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ChiTietSP.ChungLoai)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ChiTietSP.ChungLoai)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.MaSP }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

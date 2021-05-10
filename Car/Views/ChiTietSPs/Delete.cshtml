@@ -1,0 +1,176 @@
+﻿@model Car.Models.ChiTietSP
+
+@{
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>ChiTietSP</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.ChungLoai)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ChungLoai)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.XuatXu)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.XuatXu)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.NamSanXuat)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.NamSanXuat)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.KichThuoc)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.KichThuoc)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ChieuDaiCoSo)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ChieuDaiCoSo)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.TuTrong)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.TuTrong)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DungTichXiLanh)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DungTichXiLanh)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.KieuDongCo)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.KieuDongCo)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.HopSo)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.HopSo)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CongSuatLonNhat)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CongSuatLonNhat)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Momen)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Momen)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.TocDoToiDa)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.TocDoToiDa)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.NhienLieu)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.NhienLieu)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.KieuDanDong)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.KieuDanDong)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.SoChoNgoi)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.SoChoNgoi)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.TieuThu)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.TieuThu)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CoLop)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CoLop)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.MoTa)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.MoTa)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>
+</html>

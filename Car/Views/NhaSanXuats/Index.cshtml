@@ -1,0 +1,97 @@
+﻿@model IEnumerable<Car.Models.NhaSanXuat>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+    WebGrid grid = new WebGrid(source: Model, rowsPerPage: 2);
+}
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TenNSX)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ThongTin)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenNSX)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThongTin)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.MaNSX }) |
+                @Html.ActionLink("Details", "Details", new { id=item.MaNSX }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.MaNSX })
+            </td>
+        </tr>
+    }
+
+    </table>
+*@
+<div style="margin:15px">
+    <button class="btn btn-success" style="margin :15px;"> @Html.ActionLink("Thêm Mới Nhà Sản Xuất", "Create")</button>
+
+    @grid.GetHtml(
+        tableStyle: "girdTable",
+        headerStyle: "girdHead",
+        footerStyle: "girdFooter",
+        rowStyle: "girdRow",
+        alternatingRowStyle: "girdAltRow",
+        columns: grid.Columns(
+            grid.Column("TenNSX", "Tên Nhà Sản Xuất"),
+            grid.Column("ThongTin", "Thông Tin" ,format:p=>Html.Raw(p.ThongTin)),
+            grid.Column(format: p => @Html.ActionLink("Chỉnh Sửa", "Edit", new { id = p.MaNSX })),
+            grid.Column(format: p => @Html.ActionLink("Xóa", "Delete", new { id = p.MaNSX }))
+            ))
+</div>
+<style>
+    .girdTable {
+        width: 100%;
+        margin: 15px
+    }
+
+        .girdTable td {
+            border: 1px solid #999999;
+            text-align: center;
+            width: 100px
+        }
+
+    .girdHead {
+        background-color: cornflowerblue;
+        text-align: center
+    }
+
+        .girdHead > th > a {
+            color: #ffffff
+        }
+
+    .girdFooter {
+        font-weight: bold
+    }
+
+    .girdRow img {
+        width: 370px;
+        height: 270px
+    }
+
+    .girdAltRow img {
+        width: 370px;
+        height: 270px
+    }
+
+    .girdFooter {
+        font-weight: bolder;
+        font-size: 20px
+    }
+</style>
+
+}

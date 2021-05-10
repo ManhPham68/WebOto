@@ -1,0 +1,32 @@
+﻿@using Car.Models
+@model IEnumerable<Team>
+<div class="happy-clients">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h2>Đội Ngũ Kĩ Sư</h2>
+
+                    
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="owl-clients owl-carousel text-center">
+                    @foreach (var item in Model)
+                    {
+                    <div class="service-item">
+                        <div class="icon">
+                            <img style="object-fit: cover;" src="~/Content/assets/images/@item.HinhAnh" alt="">
+                        </div>
+                        <div class="down-content">
+                            <h4>@item.Ten</h4>
+                            <p class="n-m"><em>"@item.TramNgon"</em></p>
+                        </div>
+                    </div>
+
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

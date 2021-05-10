@@ -1,0 +1,243 @@
+﻿@*<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title - My ASP.NET Application</title>
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+    </head>
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </body>
+    </html>
+*@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="~/Content/assets/images/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <title></title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/Content/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="~/Content/assets/css/fontawesome.css">
+    <link rel="stylesheet" href="~/Content/assets/css/style.css">
+    <link rel="stylesheet" href="~/Content/assets/css/owl.css">
+
+</head>
+
+<body>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+    <!-- Header -->
+    @Html.Action("MenuPartial","Home")
+    <!-- Page Content -->
+    <!-- Banner Starts Here -->
+    <div class="banner header-text">
+        <div class="owl-banner owl-carousel">
+            <div class="banner-item-01">
+                <div class="text-content">
+                    <h4></h4>
+                    <h2></h2>
+                </div>
+            </div>
+            <div class="banner-item-02">
+                <div class="text-content">
+                    <h4></h4>
+                    <h2></h2>
+                </div>
+            </div>
+            <div class="banner-item-03">
+                <div class="text-content">
+                    <h4></h4>
+                    <h2></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Banner Ends Here -->
+    @RenderBody();
+
+ 
+
+    <div class="best-features">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-heading">
+                        <h2>Thông Tin Cửa Hàng</h2>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="left-content">
+                        <p>
+                            Salon ô tô Car Luxyry được thành lập từ năm 2007, thuộc tập đoàn Bảo Tín, thương hiệu vàng nổi tiếng nhất nhì Việt Nam tại số 360 Trần Khát Chân, phường Thanh Nhàn, quận Hai Bà Trưng, thành phố Hà Nội.
+
+                            Với hơn 10 năm kinh nghiệm kinh doanh xe hơi nhập khẩu, đặc biệt là những dòng xe siêu sang như Bentley, Rolls-Royce hay những dòng siêu xe tốc độ như Lamborghini, Ferrari, Sơn Tùng Auto luôn là điểm đến hàng đầu của khách hàng và các tín đồ mê xe. Hơn nữa, chúng tôi cũng phục vụ khách hàng những dòng xe đã qua sử dụng với những thương hiệu lớn nhỏ khác nhau.
+
+                            Bên cạnh đó, Car Luxyry cũng hợp tác với Ceramic Pro - thương hiệu sơn xe phủ gốm đẳng cấp trên Thế giới nói chung và Việt Nam nói riêng, tạp chí Xe Hay, Autodaily,...khi cung cấp hình ảnh và video clip để đánh giá và quảng bá những chiếc xe hàng "hot" của chúng tôi.
+                        </p>
+                        <ul class="featured-list">
+                            <li><a href="#"> Khánh Hàng Là "Thượng Đế "</a></li>
+                            <li><a href="#"> Sản Phẩm Chất Lượng Hàng Đầu Việt Nam </a></li>
+                            <li><a href="#"> Đội Ngũ Kĩ Sư Giàu Kinh Nghiệm </a></li>
+                         
+                        </ul>
+                      @*  <a href="about-us.html" class="filled-button">Read More</a>*@
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="right-image">
+                        <img src="~/Content/assets/images/about-1-570x350.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="services" style=" background-image: url(/Content/assets/images/other-image-fullscren-1-1920x900.jpg);">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-heading">
+                        <h2>Latest blog posts</h2>
+
+                        <a href="blog.html">read more <i class="fa fa-angle-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item">
+                        <a href="#" class="services-item-image"><img src="~/Content/assets/images/blog-1-370x270.jpg" class="img-fluid" alt=""></a>
+
+                        <div class="down-content">
+                            <h4><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit hic</a></h4>
+
+                            <p style="margin: 0;"> John Doe &nbsp;&nbsp;|&nbsp;&nbsp; 12/06/2020 10:30 &nbsp;&nbsp;|&nbsp;&nbsp; 114</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item">
+                        <a href="#" class="services-item-image"><img src="~/Content/assets/images/blog-2-370x270.jpg" class="img-fluid" alt=""></a>
+
+                        <div class="down-content">
+                            <h4><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit</a></h4>
+
+                            <p style="margin: 0;"> John Doe &nbsp;&nbsp;|&nbsp;&nbsp; 12/06/2020 10:30 &nbsp;&nbsp;|&nbsp;&nbsp; 114</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item">
+                        <a href="#" class="services-item-image"><img src="~/Content/assets/images/blog-3-370x270.jpg" class="img-fluid" alt=""></a>
+
+                        <div class="down-content">
+                            <h4><a href="#">Aperiam modi voluptatum fuga officiis cumque</a></h4>
+
+                            <p style="margin: 0;"> John Doe &nbsp;&nbsp;|&nbsp;&nbsp; 12/06/2020 10:30 &nbsp;&nbsp;|&nbsp;&nbsp; 114</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    @Html.Action("Team","Teams")
+
+    @*<div class="call-to-action">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="inner-content">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h4>Lorem ipsum dolor sit amet, consectetur adipisicing.</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque corporis amet elite author nulla.</p>
+                            </div>
+                            <div class="col-lg-4 col-md-6 text-right">
+                                <a href="contact.html" class="filled-button">Contact Us</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>*@
+
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="inner-content">
+                        <p>Copyright © 2021</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="~/Content/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Content/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- Additional Scripts -->
+    <script src="~/Content/assets/js/custom.js"></script>
+    <script src="~/Content/assets/js/owl.js"></script>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

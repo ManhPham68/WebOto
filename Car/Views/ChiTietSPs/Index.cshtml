@@ -1,0 +1,202 @@
+﻿@model IEnumerable<Car.Models.ChiTietSP>
+
+@{
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+    WebGrid grid = new WebGrid(source: Model, rowsPerPage: 2);
+}
+
+<!DOCTYPE html>
+
+@*<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Index</title>
+    </head>
+    <body>
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ChungLoai)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.XuatXu)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NamSanXuat)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.KichThuoc)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ChieuDaiCoSo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TuTrong)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DungTichXiLanh)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.KieuDongCo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.HopSo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CongSuatLonNhat)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Momen)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TocDoToiDa)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NhienLieu)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.KieuDanDong)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SoChoNgoi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TieuThu)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CoLop)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MoTa)
+                </th>
+                <th></th>
+            </tr>
+
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ChungLoai)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XuatXu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NamSanXuat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KichThuoc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ChieuDaiCoSo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TuTrong)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DungTichXiLanh)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KieuDongCo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HopSo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CongSuatLonNhat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Momen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TocDoToiDa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NhienLieu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KieuDanDong)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoChoNgoi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TieuThu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CoLop)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MoTa)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.MaCTSP }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.MaCTSP }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.MaCTSP })
+                </td>
+            </tr>
+        }
+
+        </table>
+    </body>
+    </html>*@
+<div style="margin:15px">
+    <button class="btn btn-success" style="margin:15px"> @Html.ActionLink("Thêm Mới CTSP", "Create")</button>
+
+    @grid.GetHtml(
+        tableStyle: "girdTable",
+        headerStyle: "girdHead",
+        footerStyle: "girdFooter",
+        rowStyle: "girdRow",
+        alternatingRowStyle: "girdAltRow",
+        columns: grid.Columns(
+            grid.Column("XuatXu", "Xuất Xứ"),
+            grid.Column("NamSanXuat", "Năm Sản Xuất"),
+            grid.Column("KichThuoc", "Kích Thước"),
+            grid.Column("MoTa", "Mô Tả",format:p=>Html.Raw(p.MoTa)),
+            grid.Column(format: p => @Html.ActionLink("Chỉnh Sửa", "Edit", new { id = p.MaCTSP })),
+            grid.Column(format: p => @Html.ActionLink("Xóa", "Delete", new { id = p.MaCTSP }))
+            ))
+</div>
+<style>
+    .girdTable {
+        width: 100%;
+        margin: 15px
+    }
+
+        .girdTable td {
+            border: 1px solid #999999;
+            text-align: center;
+            width: 100px
+        }
+
+    .girdHead {
+        background-color: cornflowerblue;
+        text-align: center
+    }
+
+        .girdHead > th > a {
+            color: #ffffff
+        }
+
+    .girdFooter {
+        font-weight: bold
+    }
+
+    .girdRow img {
+        width: 370px;
+        height: 270px
+    }
+
+    .girdAltRow img {
+        width: 370px;
+        height: 270px
+    }
+
+    .girdFooter {
+        font-weight: bolder;
+        font-size: 15px
+    }
+</style>

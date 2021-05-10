@@ -1,0 +1,23 @@
+﻿@using Car.Models
+@model IEnumerable<SanPham>
+@{
+    ViewBag.Title = "Index";
+}
+@{ 
+    IEnumerable<SanPham> listNewCar = (IEnumerable<SanPham>)ViewBag.ListNewCar;
+    // IEnumerable<SanPham> listNewCar = ViewBag.ListNewCar as IEnumerable<SanPham>;
+}
+<div class="latest-products">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h2>Xe Hot Mới Về</h2>
+                    <a href="@Url.Action("DanhSachSp","SanPhams")">Xem Thêm <i class="fa fa-angle-right"></i></a>
+                </div>
+            </div>
+       @Html.Partial("~/Views/Home/SanPhamMoi.cshtml",listNewCar)                                
+        </div>
+    </div>
+</div>
+
